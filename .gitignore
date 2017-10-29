@@ -1,4 +1,7 @@
 #File patterns that are ignored
+ 
+# Executables
+*.exe
 
 # Compiled Object files
 *.slo
