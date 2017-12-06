@@ -1,7 +1,7 @@
 #File patterns that are ignored
  
 ## Executables
-#*.exe
+*.exe
 
 # Compiled Object files
 *.slo
@@ -29,9 +29,10 @@
 # Build results
 [Dd]ebug/
 [Rr]elease/
-[Rr]elease-nompi/
 [Oo]bj/
 
+# Keep the Windows Release executables
+!bin/x64/Release/*.exe
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/
@@ -103,6 +104,4 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Keep the Windows Release executables
-!/bin/x64/Release/* #Make exception for these
 
