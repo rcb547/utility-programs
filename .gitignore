@@ -1,8 +1,7 @@
 #File patterns that are ignored
  
-# Executables
-*.exe
-
+## Executables
+#*.exe
 
 # Compiled Object files
 *.slo
@@ -106,6 +105,4 @@ $RECYCLE.BIN/
 
 # Keep the Windows Release executables
 !/bin/x64/Release/* #Make exception for these
-
-
 
