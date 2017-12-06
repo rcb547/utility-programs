@@ -1,11 +1,10 @@
 #File patterns that are ignored
  
 # Executables
-*.exe
+# *.exe
 
 # Keep the Windows x64/Release
-!/bin/x64/Release/* #Make exception for these
-
+!/bin/x64/Release/*.exe #Make exception for these
 
 # Compiled Object files
 *.slo
