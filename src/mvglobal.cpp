@@ -77,9 +77,6 @@ int main(int argc, char* argv[])
 	// GET DIRECTORY ENTRIES
 	for(size_t i=0; i<list.size(); i++){
 		std::string file=list[i];
-			
-		size_t startindex=0;
-		if(start)startindex=1;
 
 		std::string newfile = file;
 		int numch=0;
