@@ -9,7 +9,7 @@ Author: Ross C. Brodie, Geoscience Australia.
 #include "stdio.h"
 #include "windows.h"
 #include "general_utils.h"
-int main(int argc, char *argv[])
+int main()
 {
   MEMORYSTATUS memstatus;
   GlobalMemoryStatus(&memstatus);
