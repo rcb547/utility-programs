@@ -17,8 +17,9 @@
     <ClInclude Include="..\..\..\src\general_types.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\c++-utils\src\general_utils.cpp" />
     <ClCompile Include="..\..\src\splitasciibycolumn.cpp" />
+    <ClCompile Include="..\..\submodules\cpp-utils\src\file_utils.cpp" />
+    <ClCompile Include="..\..\submodules\cpp-utils\src\general_utils.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{26237B6A-F2C6-4EA5-9CAE-CB610D267385}</ProjectGuid>
@@ -45,12 +46,12 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\propertysheets\utility-programs.props" />
-    <Import Project="..\..\..\c++-utils\vs2013\propertysheets\c++-utils.props" />
+    <Import Project="..\propertysheets\cpp-utils.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\propertysheets\utility-programs.props" />
-    <Import Project="..\..\..\c++-utils\vs2013\propertysheets\c++-utils.props" />
+    <Import Project="..\propertysheets\cpp-utils.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

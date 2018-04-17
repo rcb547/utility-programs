@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\c++-utils\src\file_utils.cpp" />
-    <ClCompile Include="..\..\..\c++-utils\src\general_utils.cpp" />
     <ClCompile Include="..\..\src\subsetasciibypolygon.cpp" />
+    <ClCompile Include="..\..\submodules\cpp-utils\src\file_utils.cpp" />
+    <ClCompile Include="..\..\submodules\cpp-utils\src\general_utils.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3C7E65A9-74BB-4575-8CE2-C8856230E537}</ProjectGuid>
@@ -40,12 +40,12 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\propertysheets\utility-programs.props" />
-    <Import Project="..\..\..\c++-utils\vs2013\propertysheets\c++-utils.props" />
+    <Import Project="..\propertysheets\cpp-utils.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\propertysheets\utility-programs.props" />
-    <Import Project="..\..\..\c++-utils\vs2013\propertysheets\c++-utils.props" />
+    <Import Project="..\propertysheets\cpp-utils.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
