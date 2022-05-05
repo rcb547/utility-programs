@@ -10,12 +10,13 @@ Author: Ross C. Brodie, Geoscience Australia.
 #include <cstdlib>
 #include <cstring>
 #include <vector>
-using namespace std;
 
 #include "general_utils.h"
 #include "file_utils.h"
 #include "asciicolumnfile.h"
 #include "polygon.h"
+
+class cLogger glog; //The global instance of the log file manager
 
 int main(int argc, char* argv[])
 {	
@@ -45,14 +46,15 @@ int main(int argc, char* argv[])
 	////////////////////////////////////////////////////////////////
 	cPoint p;
 	cAsciiColumnFile asc(infilename);
+	asc.rewind();
 	size_t k = 0;
-	while(asc.readnextrecord()){	
+	while(asc.load_next_record()){	
 		if (k%subsamplerate == 0){
-			asc.parserecord();
+			asc.parse_record();
 			asc.getcolumn(colx, p.x);
 			asc.getcolumn(coly, p.y);
 			if (poly.isinside(p)){
-				fputs(asc.currentrecordstring(), outfile);
+				fputs(asc.currentrecord_string().c_str(), outfile);
 				fputs("\n", outfile);
 			};
 		}

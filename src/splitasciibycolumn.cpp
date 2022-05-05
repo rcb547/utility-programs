@@ -11,7 +11,8 @@ Author: Ross C. Brodie, Geoscience Australia.
 #include <cstring>
 #include "general_utils.h"
 
-#define BUFFERLEN 10000000
+class cLogger glog; //The global instance of the log file manager
+int constexpr BUFFERLEN = 10000000;
 
 int main(int argc, char* argv[])
 {
@@ -30,7 +31,7 @@ int main(int argc, char* argv[])
 	}
 
 	size_t column = 0;
-	if (sscanf(argv[2], "%lu", &column) != 1){
+	if (sscanf(argv[2], "%zu", &column) != 1){
 		printf("Invalid column number %s\n", argv[2]);
 		exit(1);
 	}
@@ -38,7 +39,7 @@ int main(int argc, char* argv[])
 
 	size_t headerlines = 0;
 	if (argc == 4){
-		if (sscanf(argv[3], "%lu", &headerlines) != 1){
+		if (sscanf(argv[3], "%zu", &headerlines) != 1){
 			printf("Invalid number of header lines %s\n", argv[2]);
 			exit(1);
 		}
@@ -78,26 +79,26 @@ int main(int argc, char* argv[])
 			record++;
 			
 			if (buffer[0] == '\n' || buffer[0] == '\r'){
-				printf("Skipping blank record %lu\n", record);
+				printf("Skipping blank record %zu\n", record);
 				continue;
 			}
 
 			std::vector<std::string> fields = fieldparsestring(buffer, " ");
 
 			if (fields.size() < column+1){
-				printf("Skipping record %lu - not enough columns\n", record);
+				printf("Skipping record %zu - not enough columns\n", record);
 				continue;
 			}
 
 			std::string id = trim(fields[column]);
 						
 			if (id.size() == 0){
-				printf("Skipping record %lu - invalid id\n", record);
+				printf("Skipping record %zu - invalid id\n", record);
 				continue;
 			}
 
 			if (id[0] == '"'){
-				printf("Skipping record %lu id=%s\n", record, id.c_str());
+				printf("Skipping record %zu id=%s\n", record, id.c_str());
 				continue;
 			}
 
@@ -115,7 +116,7 @@ int main(int argc, char* argv[])
 				oldid = id;
 			}
 			
-			if (fputs(&(buffer[0]), fp_out) == EOF) {
+			if (fp_out == 0 || fputs(&(buffer[0]), fp_out) == EOF) {
 				printf("write error\n");
 				exit(1);
 			}

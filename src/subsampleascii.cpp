@@ -13,7 +13,8 @@ using namespace std;
 
 #include "general_utils.h"
 
-#define BUFFERLEN 1000000
+int constexpr BUFFERLEN = 1000000;
+class cLogger glog; //The global instance of the log file manager
 
 int main(int argc, char* argv[])
 {

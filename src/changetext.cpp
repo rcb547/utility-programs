@@ -25,13 +25,13 @@ void interpretcontrolcharcters(char* input, char* output);
 
 int main(int argc, char* argv[])
 {
-     struct stat file_stat,*filestat;
+    struct stat file_stat;// , * filestat;
      size_t loc,length,numch;
      FILE *fp,*fq;
      
      char tempfilename[500];
 
-     filestat=&file_stat;
+     //filestat=&file_stat;
 
      if(argc<4){
 		 printf("usage: %s input_file search_pattern replace_pattern \n",argv[0]);
@@ -46,11 +46,11 @@ int main(int argc, char* argv[])
          printf("***WARNING*** cannot open file: %s \n",argv[1]);
          exit(1);
       }
-       if ( stat(argv[1],filestat) != 0 ) {
+       if ( stat(argv[1],&file_stat) != 0 ) {
          printf("***WARNING*** cannot read status on file: %s \n",argv[1]);
          exit(1);
       }
-       if ( filestat->st_size > MAXSIZE ) {
+       if ( file_stat.st_size > MAXSIZE ) {
          printf("***WARNING*** file larger then MAXSIZE bytes : %s \n",argv[1]);
          exit(1);
       }
@@ -102,12 +102,12 @@ int main(int argc, char* argv[])
       fclose(fq);
       remove(argv[1]);
       rename(tempfilename,argv[1]);
-      _chmod(argv[1],filestat->st_mode);
+      _chmod(argv[1],file_stat.st_mode);
 
 	  
 
       if(numch==0)printf("***WARNING: %s *** FILE %s :search std::string %s not found\n",argv[0],argv[1],search);
-      else printf("FILE %s :%s replaced by %s %5ld times\n",argv[1],search,replace,numch);
+      else printf("FILE %s :%s replaced by %s %5zd times\n",argv[1],search,replace,numch);
 
 	  delete []inputtext;
 	  delete []search;

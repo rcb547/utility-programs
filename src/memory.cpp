@@ -9,6 +9,9 @@ Author: Ross C. Brodie, Geoscience Australia.
 #include "stdio.h"
 #include "windows.h"
 #include "general_utils.h"
+
+class cLogger glog; //The global instance of the log file manager
+
 int main()
 {
   MEMORYSTATUS memstatus;

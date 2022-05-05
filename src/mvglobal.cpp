@@ -26,6 +26,8 @@ Author: Ross C. Brodie, Geoscience Australia.
 
 #define MAXFNAMELEN 256
 
+class cLogger glog; //The global instance of the log file manager
+
 int renameifpermission( const std::string name, const std::string newname );
 
 int main(int argc, char* argv[])
