@@ -1,5 +1,7 @@
 #File patterns that are ignored
  
+build*/
+
 ## Executables
 *.exe
 
