@@ -36,7 +36,7 @@ build*/
 [Oo]bj/
 
 # Keep the Windows Release executables
-!bin/x64/Release/*.exe
+#!bin/x64/Release/*.exe
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 !packages/*/build/

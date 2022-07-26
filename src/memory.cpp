@@ -17,19 +17,19 @@ int main()
   MEMORYSTATUS memstatus;
   GlobalMemoryStatus(&memstatus);
 
-  printf("Total physical memory: %d Mb\n",memstatus.dwTotalPhys/1000000);  	
-  printf("Total page file memory: %d Mb\n",memstatus.dwTotalPageFile/1000000);  	
-  printf("Total virtual memory: %d Mb\n",memstatus.dwTotalVirtual/1000000);  	
+  printf("Total physical memory: %zu Mb\n",memstatus.dwTotalPhys/1000000);  	
+  printf("Total page file memory: %zu Mb\n",memstatus.dwTotalPageFile/1000000);  	
+  printf("Total virtual memory: %zu Mb\n",memstatus.dwTotalVirtual/1000000);  	
   printf("\n");  	
 
-  printf("Available physical memory: %d Mb\n",memstatus.dwAvailPhys/1000000);  	
-  printf("Available page file memory: %d Mb\n",memstatus.dwAvailPageFile/1000000);  	
-  printf("Available virtual memory: %d Mb\n",memstatus.dwAvailVirtual/1000000);  	
+  printf("Available physical memory: %zu Mb\n",memstatus.dwAvailPhys/1000000);  	
+  printf("Available page file memory: %zu Mb\n",memstatus.dwAvailPageFile/1000000);  	
+  printf("Available virtual memory: %zu Mb\n",memstatus.dwAvailVirtual/1000000);  	
   printf("\n");  	
   
-  printf("Used physical memory: %d Mb\n",(memstatus.dwTotalPhys-memstatus.dwAvailPhys)/1000000);  	
-  printf("Used page file memory: %d Mb\n",(memstatus.dwTotalPageFile-memstatus.dwAvailPageFile)/1000000);  	
-  printf("Used virtual memory: %d Mb\n",(memstatus.dwTotalVirtual-memstatus.dwAvailVirtual)/1000000);  	
+  printf("Used physical memory: %zu Mb\n",(memstatus.dwTotalPhys-memstatus.dwAvailPhys)/1000000);  	
+  printf("Used page file memory: %zu Mb\n",(memstatus.dwTotalPageFile-memstatus.dwAvailPageFile)/1000000);  	
+  printf("Used virtual memory: %zu Mb\n",(memstatus.dwTotalVirtual-memstatus.dwAvailVirtual)/1000000);  	
   printf("\n");  	
 
   printf("Memory used: %d%%\n",memstatus.dwMemoryLoad);  	
