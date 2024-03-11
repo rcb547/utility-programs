@@ -127,19 +127,19 @@ void interpretcontrolcharcters(char* input, char* output)
 
 	for (size_t k = 0; k < len_input; k++) {
 		if (k < len_input - 1 && strncmp(&(input[k]), "/t", 2) == 0) {
-			strncat(output, "\t", 1);
+			strcat(output, "\t");
 			k++;
 		}
 		else if (k < len_input - 1 && strncmp(&(input[k]), "/r", 2) == 0) {
-			strncat(output, "\r", 1);
+			strcat(output, "\r");
 			k++;
 		}
 		else if (k < len_input - 1 && strncmp(&(input[k]), "/n", 2) == 0) {
-			strncat(output, "\n", 1);
+			strcat(output, "\n");
 			k++;
 		}
 		else {
-			strncat(output, &(input[k]), 1);
+			strcat(output, &(input[k]));
 		}
 	}
 }

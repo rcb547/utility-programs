@@ -1,22 +1,27 @@
 #!/bin/sh
 
+# Build script suitable for the gadi.nci.au cluster
+
 module load cmake/3.16.2
 
-module load intel-compiler
+module load intel-compiler/2021.10.0
 export BUILD_DIR=$PWD/build-intel
-export INSTALL_DIR=$PWD/bin/gadi-intel
+export INSTALL_DIR=$PWD/install-intel
+###export INSTALL_DIR=/g/data/qi71/apps/utility-programs/intel
 mkdir $BUILD_DIR
 cd $BUILD_DIR
 cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_BUILD_TYPE=Release  ..
 
-#module load gcc/11.1.0
+#module load gcc/13.2.0
 #export BUILD_DIR=$PWD/build-gnu
-#export INSTALL_DIR=$PWD/bin/gadi-gnu
+#export INSTALL_DIR=$PWD/install-gnu
+###export INSTALL_DIR=/g/data/qi71/apps/utility-programs/gnu
 #mkdir $BUILD_DIR
 #cd $BUILD_DIR
 #cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release  ..
 
-#module list 
+module list 
+
 
 #Build everything
 cmake --build . --target all
@@ -32,5 +37,5 @@ cmake --build . --target all
 #cmake --build . --target mvglobal --config=Release
 #cmake --build . --target changetext --config=Release
 
-#cmake --install . --prefix /g/data/qi71/apps/utility-programs/gadi/intel
-#cmake --install . --prefix /g/data/qi71/apps/utility-programs/gadi/gnu
+cmake --install . --prefix $INSTALL_DIR
+

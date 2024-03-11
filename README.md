@@ -16,7 +16,7 @@ C++
 ## Cloning
 When initially cloning the repository in git it is convenient to use the "--recursive" option so that all the submodules and their respective submodules are initialised and populated with code.
 ```bash
-    >> cd <directory where you want the repo to go>> 
+    >> cd <directory where you want the repo to go> 
     >> git clone --recursive git@github.com:rcb547/utility-programs
 ```
 ## Building using cmake on Linux or Windows
