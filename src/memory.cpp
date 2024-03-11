@@ -6,8 +6,8 @@ The GNU GPL 2.0 licence is available at: http://www.gnu.org/licenses/gpl-2.0.htm
 Author: Ross C. Brodie, Geoscience Australia.
 */
 
-#include "stdio.h"
-#include "windows.h"
+#include <stdio.h>
+#include <windows.h>
 #include "general_utils.h"
 
 class cLogger glog; //The global instance of the log file manager

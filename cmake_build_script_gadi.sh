@@ -18,9 +18,19 @@ cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_BUILD_TYPE=Releas
 
 #module list 
 
+#Build everything
 cmake --build . --target all
-#cmake --install . --prefix $INSTALL_DIR
 
+#Or alternatively ...
 
-cmake --install . --prefix /g/data/qi71/apps/utility-programs/bin/gadi/intel
-#cmake --install . --prefix /g/data/qi71/apps/utility-programs/bin/gadi/gnu
+#Build only particular targets
+#cmake --build . --target splitasciibycolumn --config=Release
+#cmake --build . --target subsampleascii --config=Release
+#cmake --build . --target subsetascii --config=Release
+#cmake --build . --target subsetasciibypolygon --config=Release
+#cmake --build . --target removedata --config=Release
+#cmake --build . --target mvglobal --config=Release
+#cmake --build . --target changetext --config=Release
+
+#cmake --install . --prefix /g/data/qi71/apps/utility-programs/gadi/intel
+#cmake --install . --prefix /g/data/qi71/apps/utility-programs/gadi/gnu

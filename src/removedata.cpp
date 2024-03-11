@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 				fputs(&(buffer[4]), outfile);
 			}
 			else {
-				printf("Error: non DATA record encountered on line %d\n",k);
+				printf("Error: non DATA record encountered on line %zu\n",k);
 				exit(1);
 			}
 		}
