@@ -6,11 +6,12 @@ REM BUILD_DIR is a temporary directory for building (compiling and linking)
 set BUILD_DIR=%cd%\build-windows-vs2022
 
 REM Optionally delete the BUILD_DIR to ensure a clean cache/start
-DEL /S/Q %BUILD_DIR%
+REM DEL /S/Q %BUILD_DIR%
 
 REM INSTALL_DIR is the directory for installing the built package and examples (e.g. c:\myprograms\ga-aem)
 set INSTALL_DIR=%cd%\install-windows-vs2022
 REM set INSTALL_DIR=%LocalAppData%\utility-programs
+REM set INSTALL_DIR=C:\Users\<your_username>\AppData\Local\utility-programs
 
 REM Maybe delete the BUILD_DIR for a fresh start
 REM RMDIR /S /Q %BUILD_DIR%

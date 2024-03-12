@@ -1,7 +1,7 @@
 # Utilities for manipulating ASCII geophysical data files
 ## Description
 The repository contains simple utility programs for:
-- Splitting files by column contents (e.g. line number or flight number)
+- Splitting files by column contents (eg. line number or flight number)
 - Sub-sampling (decimating)
 - Sub-setting by spatial rectangle
 - Sub-setting by spatial polygon
@@ -16,19 +16,19 @@ C++
 ## Cloning
 When initially cloning the repository in git it is convenient to use the "--recursive" option so that all the submodules and their respective submodules are initialised and populated with code.
 ```bash
-    >> cd <directory where you want the repo to go> 
+    >> cd <directory where you want the repo to be cloned into, eg., ~/myrepos> 
     >> git clone --recursive git@github.com:rcb547/utility-programs
 ```
 ## Building using cmake on Linux or Windows
 1. The cmake program uses the file [*CMakeLists.txt*](CMakeLists.txt) to build the executables
 1. The simplest form of cmake usage is,
     ```bash
-    >> cd [directory where the utility-programs repo is]  
-    >> mkdir my-build-dir                            // my-build-dir is a temporary directory for building
-    >> cd my-build-dir                               // change to the build-dir
-    >> cmake ..                                      // configure and generate using ../CMakeLists.txt in the directory above
-    >> cmake --build .                               // build all targets
-    >> cmake --install . --prefix my-install-dir     // install the executables, libraries and headers in my-install-dir 
+    >> cd <directory where the utility-programs repo is> // eg. cd ~/myrepos/utility-programs>  
+    >> mkdir <my-build-dir>                              // my-build-dir is a temporary directory for building
+    >> cd <my-build-dir>                                 // change to the build-dir
+    >> cmake ..                                          // configure and generate using ../CMakeLists.txt in the directory above
+    >> cmake --build .                                   // build all targets
+    >> cmake --install . --prefix <my-install-dir>       // install the executables, libraries and headers in my-install-dir 
     ```
 1. To choose a specific compiler
     Replace  the line
@@ -41,8 +41,7 @@ When initially cloning the repository in git it is convenient to use the "--recu
     >> cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc ..
     ```
 1. For more sophisticated cases, see for example, [*cmake_build_script_ubuntu.sh*](cmake_build_script_ubuntu.sh), or [*cmake_build_script_windows-vs2022.bat*](cmake_build_script_windows-vs2022.bat).
-
-
+1. The executable programs will be installed into a directory named <my-install-dir>/bin, which will need to be in the system search path (PATH environment variable) before it can be executed.
 ## Building on Windows with Microsoft Visual Studio
 - You can build the programs with the free Microsoft Visual Studio Community 2022 compiler.
 - Visual Studio solution and project files are supplied.
@@ -50,7 +49,7 @@ When initially cloning the repository in git it is convenient to use the "--recu
 - Alternatively open individual program solution files in their respective sub-directories.
 ## Program usage
 The programs include utilities for:
-- Splitting files by column contents (e.g. line number or flight number)
+- Splitting files by column contents (eg. line number or flight number)
 ```bash
     >> splitasciibycolumn.exe
     usage: splitasciibycolumn.exe input_file column_number [headerlines]
