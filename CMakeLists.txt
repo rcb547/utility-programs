@@ -50,7 +50,6 @@ endif()
 
 # Add the include directories
 include_directories(src/)
-include_directories(submodules/csv-parser/single_include)
 
 # Add the cpp-utils submodule with CGAL turned OFF as it is not needed
 set(WITH_MPI  OFF CACHE BOOL "Build cpp-utils library without MPI" FORCE)
