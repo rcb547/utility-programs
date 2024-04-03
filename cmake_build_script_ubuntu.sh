@@ -13,7 +13,7 @@ mkdir $BUILD_DIR
 cd $BUILD_DIR
 
 #Example for the GNU compilers
-cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release ..
 
 #Build everything (all targets)
 cmake --build . --target all

@@ -10,7 +10,7 @@ export INSTALL_DIR=$PWD/install-intel
 ###export INSTALL_DIR=/g/data/qi71/apps/utility-programs/intel
 mkdir $BUILD_DIR
 cd $BUILD_DIR
-cmake -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_BUILD_TYPE=Release  ..
+cmake -DCMAKE_CXX_COMPILER=icpc -DCMAKE_BUILD_TYPE=Release  ..
 
 #module load gcc/13.2.0
 #export BUILD_DIR=$PWD/build-gnu
