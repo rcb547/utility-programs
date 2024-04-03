@@ -3,6 +3,11 @@
 build*/
 
 ## Executables
+temp-*.bat
+temp-*.sh
+temp-*.txt
+
+## Executables
 *.exe
 
 # Compiled Object files

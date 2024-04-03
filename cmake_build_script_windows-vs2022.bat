@@ -5,16 +5,16 @@ REM Run this script from the "X64 Native Tools Command Prompt for VS 2019 (or VS
 REM BUILD_DIR is a temporary directory for building (compiling and linking)
 set BUILD_DIR=%cd%\build-windows-vs2022
 
-REM Optionally delete the BUILD_DIR to ensure a clean cache/start
-REM DEL /S/Q %BUILD_DIR%
-
 REM INSTALL_DIR is the directory for installing the built package and examples (e.g. c:\myprograms\ga-aem)
 set INSTALL_DIR=%cd%\install-windows-vs2022
 REM set INSTALL_DIR=%LocalAppData%\utility-programs
 REM set INSTALL_DIR=C:\Users\<your_username>\AppData\Local\utility-programs
 
-REM Maybe delete the BUILD_DIR for a fresh start
-REM RMDIR /S /Q %BUILD_DIR%
+REM Optionally delete the INSTALL_DIR to ensure a clean install
+RMDIR /S /Q %INSTALL_DIR%
+
+REM Optionally delete the BUILD_DIR to ensure a clean cache/start
+RMDIR /S /Q %BUILD_DIR%
 
 REM Create and cd to the BUILD_DIR
 mkdir %BUILD_DIR%
