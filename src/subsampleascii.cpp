@@ -9,7 +9,6 @@ Author: Ross C. Brodie, Geoscience Australia.
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-using namespace std;
 
 #include "general_utils.h"
 
@@ -22,17 +21,17 @@ int main(int argc, char* argv[])
 	FILE *outfile = (FILE*)NULL;
 
 	if (argc != 4){
-		printf("usage: %s input_file output_file subsample_rate\n", argv[0]);
+		std::printf("usage: %s input_file output_file subsample_rate\n", argv[0]);
 		exit(1);
 	}
 
 	if ((infile = fopen(argv[1], "r")) == NULL) {
-		printf("***WARNING*** cannot open file: %s \n", argv[1]);
+		std::printf("***WARNING*** cannot open file: %s \n", argv[1]);
 		exit(1);
 	}
 
 	if ((outfile = fopen(argv[2], "w")) == NULL) {
-		printf("***WARNING*** cannot open file: %s \n", argv[2]);
+		std::printf("***WARNING*** cannot open file: %s \n", argv[2]);
 		exit(1);
 	}
 
@@ -50,7 +49,7 @@ int main(int argc, char* argv[])
 				keepgoing = false;
 			}
 			else{
-				printf("read error\n");
+				std::printf("read error\n");
 				keepgoing = false;
 			}
 		}
@@ -58,7 +57,7 @@ int main(int argc, char* argv[])
 			record++;
 			if (record%subsamplerate != 1)continue;
 			if (fputs(buffer, outfile) == EOF){
-				printf("write error\n");
+				std::printf("write error\n");
 				keepgoing = false;
 			}
 		}

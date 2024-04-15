@@ -6,97 +6,68 @@ set(CMAKE_COLOR_MAKEFILE ON)
 
 ## Set project name
 project(utility-programs VERSION 1.0 DESCRIPTION "Utilities for manipulating ASCII geophysical data files" LANGUAGES CXX)
-message(STATUS "Configuring ga-aem")
+message(STATUS "Configuring utility-programs")
 
 include(cmake/Message-Functions.cmake)
-include(cmake/Check-Functions.cmake)
 
 reportvar(CMAKE_VERSION)
 reportvar(CMAKE_SYSTEM_NAME)
 reportvar(CMAKE_BUILD_TYPE)
-reportvar(CMAKE_BUILD_TYPE)
 
 set(CMAKE_EXECUTABLE_SUFFIX_CXX ".exe")
 
-# Set the C++ standard to C++17
-set(CMAKE_CXX_STANDARD 17)
+# Include the project level options and flags
+include(cmake/Typical-Compiler-Options.cmake)
 
-# Set the compile flags
-if("${CMAKE_C_COMPILER_ID}" MATCHES "MSVC" OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "MSVC")
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /O2")
-	SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   /O2")
-    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-else()
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wno-unused-but-set-variable -Wno-sign-compare -Wno-format-security ")
-	SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -O3 -Wno-unused-but-set-variable -Wno-sign-compare -Wno-format-security ")
-	# Adding filesystem library
-	link_libraries(-lstdc++fs)
-endif()
+#######################################
+### Add the build targets
 
-if(CMAKE_COMPILER_IS_GNUCC)
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-result -Wno-date-time -Wno-error=date-time ")
-	SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wno-unused-result -Wno-date-time -Wno-error=date-time ")
-	#On GCC, even with -Wno-date-time, still get warings of the form: warning: macro "__DATE__" might prevent reproducible builds [-Wdate-time]
-endif()
+# Add the project include directories, which don't have their own CMakelists.txt
+include_directories(src)
 
-# Find PkgConfig
-find_package(PkgConfig QUIET)
-if(PkgConfig_FOUND)
-	message(STATUS "PkgConfig package was found")
-else()
-	message(STATUS "PkgConfig package was NOT found")
-endif()
-
-
-# Add the include directories
-include_directories(src/)
-
-# Add the cpp-utils submodule with CGAL turned OFF as it is not needed
-set(WITH_MPI  OFF CACHE BOOL "Build cpp-utils library without MPI" FORCE)
-set(WITH_GDAL OFF CACHE BOOL "Build cpp-utils library without GDAL" FORCE)
-set(WITH_CGAL OFF CACHE BOOL "Build cpp-utils library without CGAL" FORCE)
+# Add the cpp-utils submodule
 add_subdirectory(submodules/cpp-utils EXCLUDE_FROM_ALL)
 
 # Add the executable targets
 set(target splitasciibycolumn)
 add_executable(${target} src/${target}.cpp)
-target_link_libraries(${target} PRIVATE cpp-utils::static)
+target_link_libraries(${target} PRIVATE cpp-utils)
 install(TARGETS ${target} DESTINATION bin OPTIONAL)
 
 set(target subsampleascii)
 add_executable(${target} src/${target}.cpp)
-target_link_libraries(${target} PRIVATE cpp-utils::static)
+target_link_libraries(${target} PRIVATE cpp-utils)
 install(TARGETS ${target} DESTINATION bin OPTIONAL)
 
 set(target subsetascii)
 add_executable(${target} src/${target}.cpp)
-target_link_libraries(${target} PRIVATE cpp-utils::static)
+target_link_libraries(${target} PRIVATE cpp-utils)
 install(TARGETS ${target} DESTINATION bin OPTIONAL)
 
 set(target subsetasciibypolygon)
 add_executable(${target} src/${target}.cpp)
-target_link_libraries(${target} PRIVATE cpp-utils::static)
+target_link_libraries(${target} PRIVATE cpp-utils)
 install(TARGETS ${target} DESTINATION bin OPTIONAL)
 
 set(target removedata)
 add_executable(${target} src/${target}.cpp)
-target_link_libraries(${target} PRIVATE cpp-utils::static)
+target_link_libraries(${target} PRIVATE cpp-utils)
 install(TARGETS ${target} DESTINATION bin OPTIONAL)
 
 set(target mvglobal)
 add_executable(${target} src/${target}.cpp)
-target_link_libraries(${target} PRIVATE cpp-utils::static)
+target_link_libraries(${target} PRIVATE cpp-utils)
 install(TARGETS ${target} DESTINATION bin OPTIONAL)
 
 set(target changetext)
 add_executable(${target} src/${target}.cpp)
-target_link_libraries(${target} PRIVATE cpp-utils::static)
+target_link_libraries(${target} PRIVATE cpp-utils)
 install(TARGETS ${target} DESTINATION bin OPTIONAL)
 
 if (MSVC)
 	# Only on Windows with MSVC
 	set(target memory)
 	add_executable(${target} src/${target}.cpp)
-	target_link_libraries(${target} PRIVATE cpp-utils::static)
+	target_link_libraries(${target} PRIVATE cpp-utils)
 	install(TARGETS ${target} DESTINATION bin OPTIONAL)
 endif()

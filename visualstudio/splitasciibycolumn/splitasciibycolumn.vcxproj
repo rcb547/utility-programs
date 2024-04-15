@@ -18,8 +18,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\splitasciibycolumn.cpp" />
-    <ClCompile Include="..\..\submodules\cpp-utils\src\file_utils.cpp" />
-    <ClCompile Include="..\..\submodules\cpp-utils\src\general_utils.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{26237B6A-F2C6-4EA5-9CAE-CB610D267385}</ProjectGuid>

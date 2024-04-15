@@ -18,8 +18,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\memory.cpp" />
-    <ClCompile Include="..\..\submodules\cpp-utils\src\file_utils.cpp" />
-    <ClCompile Include="..\..\submodules\cpp-utils\src\general_utils.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D3F4BB3B-DE9E-4A82-B9A1-CBB7DB4380FB}</ProjectGuid>
